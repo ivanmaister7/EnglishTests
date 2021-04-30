@@ -12,6 +12,7 @@
 
 
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ProgressBar?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <MenuBar fx:id="menu" layoutX="14.0" layoutY="14.0" >
@@ -24,12 +25,22 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Label fx:id="labelQuestion" layoutX="178.0" layoutY="40.0" prefHeight="82.0" prefWidth="321.0" style="-fx-border-color: black; -fx-alignment:center;" text="Question" AnchorPane.leftAnchor="178.0">
+      <Label fx:id="labelQuestion" layoutX="200.0" layoutY="80.0" prefHeight="60.0" prefWidth="321.0" style="-fx-border-color: black; -fx-alignment:center;" text="Question" AnchorPane.leftAnchor="178.0">
          <font>
             <Font name="Century Gothic" size="32.0" />
          </font>
       </Label>
       <Label fx:id="labelAdd" layoutX="180.0" layoutY="40.0" prefHeight="60.0" prefWidth="300.0" style="-fx-alignment:center;" text="Add new test" AnchorPane.leftAnchor="178.0" visible="false">
+         <font>
+            <Font name="Century Gothic" size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelResultText" layoutX="180.0" layoutY="100.0" prefHeight="60.0" prefWidth="300.0" style="-fx-alignment:center;" text="Your result:" AnchorPane.leftAnchor="178.0" visible="false">
+         <font>
+            <Font name="Century Gothic" size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelResult" layoutX="180.0" layoutY="200.0" prefHeight="60.0" prefWidth="300.0" style="-fx-alignment:center;" text="" AnchorPane.leftAnchor="178.0" visible="false">
          <font>
             <Font name="Century Gothic" size="32.0" />
          </font>
@@ -92,5 +103,12 @@
             <Font name="Century Gothic" size="21.0" />
          </font>
       </Button>
+      <Button fx:id="btnRestart" layoutX="260.0" layoutY="327.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="146.0" style="-fx-background-color: black;" text="Restart" textFill="WHITE" visible="false">
+         <font>
+            <Font name="Century Gothic" size="21.0" />
+         </font>
+      </Button>
+      <ProgressBar fx:id="progressBar" layoutX="178.0" layoutY="20.0" prefHeight="30.0" prefWidth="321.0" style="-fx-accent: green;" progress="0">
+      </ProgressBar>
    </children>
 </AnchorPane>
