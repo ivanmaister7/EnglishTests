@@ -1,11 +1,7 @@
 package sample;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
@@ -18,6 +14,15 @@ public class Controller {
 
     @FXML
     private Label labelQuestion;
+
+    @FXML
+    private Label labelAdd;
+
+    @FXML
+    private TextField fieldQuest;
+
+    @FXML
+    private TextField fieldAns;
 
     @FXML
     private ToggleGroup ans;
@@ -41,6 +46,15 @@ public class Controller {
     private Button btnSkip;
 
     @FXML
+    private Button btnStart;
+
+    @FXML
+    private Button btnAdd;
+
+    @FXML
+    private Button btnSave;
+
+    @FXML
     void initialize(){
         nextLevel();
         btnOk.setOnAction(actionEvent -> {
@@ -59,9 +73,53 @@ public class Controller {
             }
         });
         btnSkip.setOnAction(actionEvent -> {
-            //load new level
+            //load new level + skip
+        });
+        menu.getMenus().get(0).getItems().get(0).setOnAction(actionEvent -> {
+            //go to menu
+            setLevelView(false);
+            setMenuView(true);
+            setAddView(false);
+        });
+        menu.getMenus().get(0).getItems().get(1).setOnAction(actionEvent -> {
+            //restart level
+        });
+        btnStart.setOnAction(actionEvent -> {
+            setLevelView(true);
+            setMenuView(false);
+        });
+        btnAdd.setOnAction(actionEvent -> {
+            setMenuView(false);
+            setAddView(true);
+        });
+        btnSave.setOnAction(actionEvent -> {
+           // add to database
         });
     }
+
+    private void setAddView(boolean b) {
+        labelAdd.setVisible(b);
+        fieldQuest.setVisible(b);
+        fieldAns.setVisible(b);
+        btnSave.setVisible(b);
+    }
+
+    private void setMenuView(boolean b) {
+        btnStart.setVisible(b);
+        btnAdd.setVisible(b);
+    }
+
+    private void setLevelView(boolean b) {
+        menu.getMenus().get(0).getItems().get(1).setVisible(b);
+        labelQuestion.setVisible(b);
+        radio1.setVisible(b);
+        radio2.setVisible(b);
+        radio3.setVisible(b);
+        radio4.setVisible(b);
+        btnOk.setVisible(b);
+        btnSkip.setVisible(b);
+    }
+
     private void nextLevel(){
         Level level = new Level();
         radio1.setText(level.getVariants()[0]);
